@@ -431,7 +431,7 @@ if cmdFailed
     if ~cluster.HasSharedFilesystem
         % MW: Stop the mirroring if we failed to submit the job - this will also
         % remove the job files from the remote location
-        [remoteConnection, mirrorConnection] = getRemoteConnection(cluster);
+        [~, mirrorConnection] = getRemoteConnection(cluster);
         % Only stop mirroring if we are actually mirroring
         if mirrorConnection.isJobUsingConnection(job.ID)
             dctSchedulerMessage(5, '%s: Stopping the mirror for job %d.', currFilename, job.ID);
